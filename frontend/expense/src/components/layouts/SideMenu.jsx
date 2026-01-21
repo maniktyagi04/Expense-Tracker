@@ -40,7 +40,7 @@ const SideMenu = ({ activeMenu }) => {
       const uploadRes = await uploadImage(file);
       const imageUrl = uploadRes.imageUrl;
 
-      const response = await axiosInstance.put(API_PATHS.AUTH.UPDATE_PROFILE || "/api/v1/auth/update-profile", {
+      const response = await axiosInstance.put(API_PATHS.AUTH.UPDATE_PROFILE, {
         profileImageUrl: imageUrl,
       });
 
