@@ -62,14 +62,15 @@ const Login = () => {
   }
   return (
     <AuthLayout>
-      <div className='lg:w-[70%] h-3/4 md:h-full flex flex-col justify-center'>
-        <h3 className='text-xl font-semibold  text-black'>Welcome Back</h3>
-        <p className='text-xm text-slate-700 mt-[5px] mb-6'>
-          Please Enter Your Details to Login
-        </p>
+      <div className='flex flex-col justify-center h-full px-6 md:px-12 py-10'>
+        <div className="mb-8">
+            <h3 className='text-3xl font-bold text-gray-900 mb-2'>Welcome Back</h3>
+            <p className='text-base text-gray-500'>
+            Please enter your details to login
+            </p>
+        </div>
 
-
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleLogin} className="w-full">
           <Input 
             value={email}
             onChange={({target}) => setEmail(target.value)}
@@ -86,14 +87,14 @@ const Login = () => {
             type="password"
           />
 
-          {error && <p className='text-red-500 text-xs pb-2.5'>{error}</p>}
+          {error && <p className='text-red-500 text-sm pb-2.5 font-medium'>{error}</p>}
 
-          <button type="submit" className='btn-primary'>
+          <button type="submit" className='btn-primary mt-4'>
             LOGIN
           </button>
 
-          <p className='text-[13px] text-slate-800 mt-3'>Don't have an account?{" "}
-            <Link className="font-medium text-primary underline" to="/signup">SignUp</Link>
+          <p className='text-sm text-center text-gray-600 mt-6'>Don't have an account?{" "}
+            <Link className="font-semibold text-primary hover:underline" to="/signup">Sign Up</Link>
           </p>
         </form>
       </div>

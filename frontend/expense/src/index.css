@@ -4,7 +4,7 @@
 @theme {
   --font-display: "Ubuntu", "sans-serif";
   --breakpoint-3xl: 1920px;
-  --color-primary: #a15c7d;
+  --color-primary: #7c3aed; /* Violet 600 - More vibrant/intentional purple */
 }
 
 @layer {
@@ -24,36 +24,51 @@
   }
 }
 
-.dark .card {
-  @apply bg-gray-900 border-gray-800 shadow-none;
-}
+@layer components {
+  .input-box {
+    @apply w-full flex items-center bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 transition-all duration-200 mt-1 mb-4;
+  }
 
-.dark .input-box {
-  @apply bg-gray-800 border-gray-700 text-white placeholder-gray-500;
-}
+  .input-box:focus-within {
+    @apply border-primary bg-white shadow-sm ring-1 ring-primary/20;
+  }
 
-.dark h1,
-.dark h2,
-.dark h3,
-.dark h4,
-.dark h5,
-.dark h6 {
-  @apply text-white;
-}
+  /* Dark mode overrides */
+  .dark .input-box {
+    @apply bg-gray-800 border-gray-700 text-white placeholder-gray-500;
+  }
 
-.dark p,
-.dark label {
-  @apply text-gray-400;
-}
+  .dark .input-box:focus-within {
+    @apply border-purple-500 ring-purple-500/20;
+  }
 
-.dark .card-btn {
-  @apply bg-gray-800 border-gray-700 text-gray-300 hover:bg-gray-700 hover:text-white;
-}
+  .btn-primary {
+    @apply w-full bg-primary text-white text-[15px] font-medium py-3 rounded-lg hover:bg-primary/90 transition-colors uppercase tracking-wide shadow-md shadow-primary/20 active:scale-[0.98];
+  }
 
-.dark .add-btn {
-  @apply bg-purple-900/20 border-purple-900/30 text-purple-400 hover:bg-purple-900/40;
-}
+  /* Card components */
+  .dark .card {
+    @apply bg-gray-900 border-gray-800 shadow-none;
+  }
 
-.add-btn-fill {
-  @apply text-white bg-primary;
+  /* Typography dark mode */
+  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+    @apply text-white;
+  }
+
+  .dark p, .dark label {
+    @apply text-gray-400;
+  }
+
+  .dark .card-btn {
+    @apply bg-gray-800 border-gray-700 text-gray-300 hover:bg-gray-700 hover:text-white;
+  }
+
+  .dark .add-btn {
+    @apply bg-purple-900/20 border-purple-900/30 text-purple-400 hover:bg-purple-900/40;
+  }
+
+  .add-btn-fill {
+    @apply text-white bg-primary;
+  }
 }

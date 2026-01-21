@@ -82,19 +82,23 @@ const SignUp = () => {
 
   return (
     <AuthLayout>
-      <div className='lg:w-[100%] h-auto md:h-full mt-10 md:mt-0 flex flex-col justify-center'>
-        <h3 className='text-xl font-semibold text-black'>Create an Account</h3>
-        <p className='text-xs text-slate-700 mt-[5px] mb-6'>Join us Today by entering your Details below</p>  
+      <div className='flex flex-col justify-center h-full px-6 md:px-12 py-10'>
+        <div className="mb-8">
+            <h3 className='text-3xl font-bold text-gray-900 mb-2'>Create an Account</h3>
+            <p className='text-base text-gray-500'>
+            Join us today by entering your details below
+            </p>  
+        </div>
         
-        <form onSubmit={handleSignUp}>
-
+        <form onSubmit={handleSignUp} className="w-full">
           <ProfilePhotoSelector image={profilePic} setImage={setProfilePic} />
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-6'>
             <Input 
               value={fullName}
               onChange={({target})=> setFullName(target.value)}
               label="Full Name"
-              placeholder="John"
+              placeholder="John Doe"
               type="text"
             />
 
@@ -104,33 +108,31 @@ const SignUp = () => {
               label="Email Address"
               placeholder="lucky@example.com"
               type="text"
-          />
-        <div className='col-span-2'>
-          <Input 
-            value={password}
-            onChange={({target}) => setPassword(target.value)}
-            label="Password"
-            placeholder="Min 8 Characters"
-            type="password"
-          />
-          </div>
+            />
 
+            <div className='col-span-1 md:col-span-2'>
+              <Input 
+                  value={password}
+                  onChange={({target}) => setPassword(target.value)}
+                  label="Password"
+                  placeholder="Min 8 Characters"
+                  type="password"
+              />
+            </div>
           </div>
-          {error && <p className='text-red-500 text-xs pb-2.5'>{error}</p>}
+          
+          {error && <p className='text-red-500 text-sm pb-2.5 font-medium'>{error}</p>}
 
-          <button type="submit" className='btn-primary'>
+          <button type="submit" className='btn-primary mt-4'>
             SIGN UP
           </button>
 
-          <p className='text-[13px] text-slate-800 mt-3'>Already have an account?{" "}
-            <Link className="font-medium text-primary underline" to="/login">LogIn</Link>
+          <p className='text-sm text-center text-gray-600 mt-6'>Already have an account?{" "}
+            <Link className="font-semibold text-primary hover:underline" to="/login">Login</Link>
           </p>
-          </form>
+        </form>
       </div>
     </AuthLayout>
   )
 }
 export default SignUp;
-
-
-

@@ -17,8 +17,9 @@ import { Toaster } from "react-hot-toast";
 
 
 const App = () => {
+  console.log("App Component Rendering");
   return (
-    <UserProvider>
+    <>
       <div>
         <Router>
           <Routes>
@@ -40,7 +41,7 @@ const App = () => {
           },
         }}
       />
-    </UserProvider>
+    </>
   );
 }
 
@@ -48,11 +49,7 @@ export default App;
 
 
 const Root = () => {
-  const isAuthenticated = !!localStorage.getItem("token")
-
-  return isAuthenticated ? (
+  return (
     <Navigate to="/dashboard" />
-  ) : (
-    <Navigate to="/login"/>
   );
 };
