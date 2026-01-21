@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Ubuntu", "sans-serif";
+  --breakpoint-3xl: 1920px;
+  --color-primary: #a15c7d;
+}
+
+@layer {
+  html {
+    font-family: var(--font-display);
+  }
+
+  body {
+    background-color: #fcfbfc;
+    overflow-x: hidden;
+    @apply transition-colors duration-300;
+  }
+
+  .dark body {
+    background-color: #0d1117;
+    color: #e6edf3;
+  }
+}
+
+.dark .card {
+  @apply bg-gray-900 border-gray-800 shadow-none;
+}
+
+.dark .input-box {
+  @apply bg-gray-800 border-gray-700 text-white placeholder-gray-500;
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  @apply text-white;
+}
+
+.dark p,
+.dark label {
+  @apply text-gray-400;
+}
+
+.dark .card-btn {
+  @apply bg-gray-800 border-gray-700 text-gray-300 hover:bg-gray-700 hover:text-white;
+}
+
+.dark .add-btn {
+  @apply bg-purple-900/20 border-purple-900/30 text-purple-400 hover:bg-purple-900/40;
+}
+
+.add-btn-fill {
+  @apply text-white bg-primary;
+}
