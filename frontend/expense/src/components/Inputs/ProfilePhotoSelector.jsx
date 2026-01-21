@@ -25,7 +25,9 @@ const ProfilePhotoSelector = ({image, setImage}) => {
     inputRef.current.click();
   }
 
-  return (
+    const DEFAULT_PROFILE_IMAGE = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
+
+    return (
     <div className='flex justify-center mb-6'>
       <input
             type='file'
@@ -36,14 +38,18 @@ const ProfilePhotoSelector = ({image, setImage}) => {
             />
 
     {!image ? (
-      <div className='w-20 h-20 flex items-center justify-center bg-purple-100 dark:bg-purple-900/30 rounded-full relative'>
-          <LuUser className='text-4xl text-primary' />
+      <div className='relative'>
+           <img
+            src={DEFAULT_PROFILE_IMAGE}
+            alt='default profile photo'
+            className='w-20 h-20 rounded-full object-cover border-2 border-primary/10'
+            />
 
       <button 
       type='button'
-      className='w-8 h-8 items-center justify-center bg-primary text-white rounded-full absolute -bottom-1 -right-1 flex'
+      className='w-8 h-8 items-center justify-center bg-primary text-white rounded-full absolute -bottom-1 -right-1 flex shadow-lg'
       onClick={onChooseFile}>
-        <LuUpload />
+        <LuUpload size={14} />
       </button>
       </div>
     ) : (

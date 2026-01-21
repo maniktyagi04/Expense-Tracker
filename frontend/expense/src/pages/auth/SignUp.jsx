@@ -20,7 +20,7 @@ const SignUp = () => {
   const {updateUser} = useContext(UserContext)
 
 
-  const navigate = useNavigate("/dashboard");
+  const navigate = useNavigate();
 
   const handleSignUp = async (e)=> {
     e.preventDefault();

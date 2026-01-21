@@ -30,6 +30,8 @@ const SideMenu = ({ activeMenu }) => {
     navigate("/login");
   };
 
+  const DEFAULT_PROFILE_IMAGE = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
+
   const handleProfilePhotoChange = async (event) => {
     const file = event.target.files[0];
     if (!file) return;
@@ -56,20 +58,11 @@ const SideMenu = ({ activeMenu }) => {
     <div className="w-64 h-[calc(100vh-61px)] bg-white dark:bg-gray-900 border-r border-gray-200/50 dark:border-gray-800 p-5 sticky top-[61px] z-20 flex flex-col transition-colors duration-300">
       <div className="flex flex-col items-center justify-center gap-3 mt-3 mb-7 relative group">
         <div className="relative">
-          {user?.profileImageUrl ? (
             <img
-              src={user?.profileImageUrl || ""}
+              src={user?.profileImageUrl || DEFAULT_PROFILE_IMAGE}
               alt="Profile Image"
-              className="w-20 h-20 bg-slate-400 rounded-full object-cover"
+              className="w-20 h-20 bg-slate-400 rounded-full object-cover border-2 border-primary/20"
             />
-          ) : (
-            <CharAvatar
-              fullName={user?.fullName}
-              width="w-20"
-              height="h-20"
-              style="text-xl"
-            />
-          )}
 
           <button
             onClick={() => fileInputRef.current.click()}

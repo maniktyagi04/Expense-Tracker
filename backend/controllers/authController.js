@@ -82,10 +82,12 @@ exports.updateProfile = async (req, res) => {
             const updatedUser = await user.save();
 
             res.json({
-                _id: updatedUser._id,
-                fullName: updatedUser.fullName,
-                email: updatedUser.email,
-                profileImageUrl: updatedUser.profileImageUrl,
+                user: {
+                    _id: updatedUser._id,
+                    fullName: updatedUser.fullName,
+                    email: updatedUser.email,
+                    profileImageUrl: updatedUser.profileImageUrl,
+                },
                 token: generateToken(updatedUser._id),
             });
         } else {
